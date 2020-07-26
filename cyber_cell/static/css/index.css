@@ -1,0 +1,55 @@
+.carousel-inner img{
+    height: 600px;
+    width: 100%;
+}
+
+#about{
+    margin:17px  12px;
+    display: inline-flex;
+    background-color: rgb(141, 141, 218);
+}
+
+.vision {
+    margin:20px;
+    font-weight: bold;
+} 
+
+
+.vision li{
+    font-size: 20px;
+    
+}
+.vision h1{
+    text-decoration:underline;
+    margin-left: 120px;
+}
+
+.mission h1{
+    text-decoration:underline;
+    margin-left: 240px;
+}
+
+
+.mission li{
+    font-size: 20px;
+}
+
+.mission{
+    margin:20px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.dept{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.dept img{
+
+    margin: 25px;
+    padding: 25px;
+    width: 300px;
+    height: 300px;
+}

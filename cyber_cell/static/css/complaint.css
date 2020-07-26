@@ -1,0 +1,47 @@
+.complaint-content{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    margin-top:62px
+}
+#h {
+
+    margin-top: 25px;
+    text-align: center;
+    align-items: center;
+}
+
+
+.complaint-form{
+
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 50px;
+    margin: 15px;
+    width: 800px;
+    height: 1650px;
+    background-color: rgb(174, 181, 212);
+
+}
+.form-control{
+    border: 3px solid black;
+    border-radius: 6px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+ label{
+
+    font-size: 25px;
+    font-weight: bold;
+}
+#btn1{
+    padding: 6px;
+    margin: 2px 200px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: rgb(202, 38, 38);
+    color: wheat;
+}
+

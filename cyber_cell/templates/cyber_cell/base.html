@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+        
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/index.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/report.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/complaint.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/helpline.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/check.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/checkstat.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/contact.css ' %}" type="text/css">
+
+
+
+    
+    <title> {% block title%} {%endblock%}</title>
+</head>
+
+<body>
+
+    <section>
+        <div id="home-container">
+
+          
+
+
+            <div class="home-content">
+
+
+                <img src="/static/images/logo.jpg">
+                <h1 id="heading">Cyber Crime Reporting Cell</h1>
+
+                
+
+
+
+
+            </div>
+            <img id="flag"src="/static/images/flag.jpg">
+        </div>
+    </section>
+
+    <div class="nav">
+        <ul>
+            <li><a href="../index/">Home</a></li>
+            
+            <li><a href="../report/">Report_Crime</a></li>
+            <li><a href="../check_status/">Check_Status</a></li>
+            <li><a href="../contact/">Contact_US</a></li>
+            <li><a href="../helpline/">Helpline</a></li>
+
+
+        </ul>
+        <div class="logs">
+            {% if user.is_authenticated %}
+        
+            <div class="dropdown">
+                <button class="btn5"> Welcome {{request.user}}</button>
+                <div class="dropdown-content">
+                <a href="../logouthandle/">logout</a>
+                </div>
+              </div>
+        
+              {% else %}
+        <!-- Button trigger modal -->
+        <button type="button" class="btn2" data-toggle="modal" data-target="#loginModal">
+           Login
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="loginModal">Login </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="../loginhandle/">
+                        {% csrf_token %} 
+                        <div class="form-group">
+                           <label >Your Name:</label>
+                        <input type="text"name="name" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label >Your Email address</label>
+                        <input type="email"name="email" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label > Password:</label>
+                        <input type="password"name="login_pass" class="form-control"  >
+                      </div>
+                      <button id="b_log">Submit</button>
+                </form>
+                </div>
+                </div>
+            </div>
+            </div>
+            
+        <button type="button" class="btn2" data-toggle="modal" data-target="#signupModal">
+                SignUp
+             </button>
+              
+        <!-- Modal -->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="signupModal">Login </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="../signuphandle/">
+                        {% csrf_token %} 
+                        
+                    <div class="form-group">
+                        <label >Your Name:</label>
+                        <input type="text"name="name" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label >Your Designation:</label>
+                        <input type="text"name="designation" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label >Your Region:</label>
+                        <input type="text"name="region" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label >Your Email address</label>
+                        <input type="email"name="email" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label > Contact Number:</label>
+                        <input type="number"name="phone" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label > Password:</label>
+                        <input type="password"name="pass" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label > Confirm-Password:</label>
+                        <input type="password"name="confirm_pass" class="form-control"  >
+                      </div>
+                      <div class="form-group">
+                        <label > Please Enter Key Provided By Department:</label>
+                        <input type="password"name="key" class="form-control"  >
+                      </div>
+                
+                      <button id="b_log">Submit</button>
+                </form>
+                </div>
+                </div>
+            </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+    
+
+    {% block body %}
+
+    {%endblock%}
+
+
+    <footer>
+        copyright 2020 © www.india.gov.in | All Rights Reserved.
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

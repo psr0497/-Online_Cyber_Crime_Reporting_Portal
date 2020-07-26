@@ -1,0 +1,35 @@
+{% extends 'cyber_cell/base.html' %}
+
+
+
+{% block title %} Complaint_Status {% endblock %}
+
+{% block body %}
+
+<section>
+    <div class="stats-container">
+        
+            <div id="stats-content"> <h1>Registration Id: {{rid}} </h1> </div>
+            
+              
+            <div id="stats-content"> <h2 style="color:rgb(212, 54, 54);">Status: {{cstatus}} </h2> </div>
+            <div id="stats-content"> Victim Name:  {{vname}} </div>
+            <div id="stats-content"> Victim Phone:  {{vphone}}</div>
+            <div id="stats-content"> Victim Age:  {{vage}} </div>
+            <div id="stats-content"> Victim Sex:  {{vsex}} </div>
+            <div id="stats-content"> Victim Address:  {{vaddress}} </div>
+            <div id="stats-content"> Victim Other Details:  {{vother}} </div>
+
+            {% if user.is_authenticated %}
+            <div id="stats-content">
+            <button type="submit" onclick="location.href='../updateStatus/';">Click Here To Change Status:</button>    
+    </div>
+            {%else%}
+            <div id="stats-content"></div>
+            {%endif%}
+        </div>
+</section>
+
+
+
+{%endblock%}

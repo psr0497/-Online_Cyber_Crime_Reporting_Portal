@@ -1,0 +1,19 @@
+.jumbotron{
+    margin: 2rem;
+    background-color: rgb(174, 181, 212);
+}
+
+
+.btn.btn-primary.btn-lg{
+
+    margin: 50px 12px;
+    background-color: tomato;
+} 
+.display-6{
+    text-align: center;
+    margin: 15px;
+    color: rgb(202, 38, 38);
+}
+.lead{
+    font-size: 25px;
+}

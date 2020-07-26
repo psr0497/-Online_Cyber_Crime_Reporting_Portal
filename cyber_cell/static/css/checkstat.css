@@ -1,0 +1,15 @@
+.stats-container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(174, 181, 212);;
+
+}
+
+#stats-content{
+    padding: 15px;
+    margin: 15px;
+    font-size: 25px;
+}

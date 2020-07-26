@@ -1,0 +1,28 @@
+
+{% extends 'cyber_cell/base.html' %}
+
+
+
+{% block title %} Complaint {% endblock %}
+
+{% block body %}
+<section>
+
+    <div id="check">
+
+        <form method="POST" action="../checkstatushandle/">
+            {% csrf_token %} 
+
+            <div class="form-group ">
+                <label>Your Victim Name :</label>
+                <input type="text" name="vname" class="form-control ">
+        
+            <button id="btn3" >Submit </button>
+            
+            </form>
+
+    </div>
+
+</section>
+
+{%endblock%}

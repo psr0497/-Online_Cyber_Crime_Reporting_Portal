@@ -1,0 +1,70 @@
+{% extends 'cyber_cell/base.html' %}
+
+
+
+{% block title %} Complaint {% endblock %}
+
+{% block body %}
+
+<section id="complaint">
+    <h2 id="h">Complaint Registration Form</h2>
+
+    <div class="complaint-content">
+        
+        <div class="complaint-form">
+        <form method="POST" action="../submitcomplaint/"enctype="multipart/form-data">
+        {% csrf_token %} 
+        <div class="form-group">
+            <label >Your Name:</label>
+            <input type="text" name="rname"id="rname" class="form-control"  >
+          </div><div class="form-group">
+            <label >Your Email address</label>
+            <input type="email"name="remail"id="remail" class="form-control"  >
+          </div>
+          <div class="form-group">
+            <label >Your Contact Number:</label>
+            <input type="text"name="rphone" id="rphone" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label >Victim Name:</label>
+            <input type="text"name="vname" id="vname" class="form-control"  >
+          </div><div class="form-group">
+            <label >Victim Email address</label>
+            <input type="email"name="vemail" id="vemail" class="form-control"  >
+          </div>
+          <div class="form-group">
+            <label >Victim Contact Number:</label>
+            <input type="text"name="vphone"id="vphone" class="form-control" >
+          </div>
+        <div class="form-group">
+          <label >Victim Age:</label>
+          <input type="number"name="age" id="age"class="form-control" >
+        </div>
+        <div class="form-group">
+            <label >Victim Sex:</label>
+            <input type="text"name="sex"id="sex" class="form-control"  >
+        </div>
+        
+              <div class="form-group">
+            <label >Enter Victim Address:</label>
+            <textarea class="form-control" name="address" id="address" rows="4"></textarea>
+          </div>
+        <div class="form-group">
+          <label >Enter Other Neccessary Details:</label>
+          <textarea class="form-control" name="other" id="other"rows="6"></textarea>
+        </div>
+        
+         
+        
+
+        <div class="form-group">
+            <button id="btn1" type="submit"> Submit</button>
+        </div>
+
+      </form>
+</div>
+</div>
+</section>
+
+
+{% endblock %}
